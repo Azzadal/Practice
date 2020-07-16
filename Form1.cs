@@ -29,7 +29,7 @@ namespace Practice
         }
         public float FindKoren(float x0, float x1, double eps)
         {
-            float left = x0, right = x1, x, fl, fr, f;
+            float left = x0, right = x1, x, f;
             int iter = 0;
             cons.Text += "x0= " + x0 + " x1= " + x1 + Environment.NewLine;
 
@@ -44,33 +44,14 @@ namespace Practice
             for (int i = -10; i < 30;)
             {
                 chart1.Series[0].Points.Add(func(i));
-                chart1.Series[1].Points.AddXY(i, func(x));
                 i ++;
                 cons.Text += i + Environment.NewLine;
             }
+            chart1.Series[1].Points.Add(func(x));
 
-            
             cons.Text += iter + " iterations " + func(x);
-            
-
 
             return func(x);
-
-
-            //const double sigma = 0.001;
-            //double x;
-            //x = (a + b) / 2;
-            //while (Math.Abs(f(x)) > sigma)
-            //{
-            //    if (f(x) > 0) b = x;
-            //    else a = x;
-            //    x = (a + b) / 2;
-
-            //   // chart1.Series[0].Points.Add(f(x));
-            //}
-            //chart1.Series[1].Points.Add(f(x));
-
-            //return x;
         }
         private void button1_Click(object sender, EventArgs e)
         {
@@ -89,11 +70,6 @@ namespace Practice
             chart1.ChartAreas[0].CursorY.IsUserSelectionEnabled = true;
             chart1.ChartAreas[0].AxisY.ScaleView.Zoomable = true;
             chart1.ChartAreas[0].AxisY.ScrollBar.IsPositionedInside = true;
-
-            //for (int i = -10; i < 30; i++)
-            //{
-            //    chart1.Series[0].Points.Add(func(i));
-            //}
         }
 
         private void button2_Click(object sender, EventArgs e)
