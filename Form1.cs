@@ -19,42 +19,64 @@ namespace Practice
             InitializeComponent();
         }
 
-        public double f(double x)
+        public float func(float x)
         {
-            //return 4 - Math.Exp(x) - 2 * Math.Pow(x, 2);
-            return Math.Pow(x, 3);
+            //return (float)(4 - Math.Exp(x) - 2 * Math.Pow(x, 2));
+            //return (Math.Sin(Math.PI * x / 180) - 1 / x);
+            //return (float)(Math.Sin(x));
+            return (float)(Math.Pow(x, 2) + 4 * x - 3);
+            //return (float)Math.Tanh(x);
         }
-        public double FindKoren(double a, double b)
+        public float FindKoren(float x0, float x1, double eps)
         {
-            const double sigma = 0.001;
-            double xm, c, x;
-            int k = -20;
-            x = (a + b) / 2;
-            while (Math.Abs(f(x)) > sigma)
+            float left = x0, right = x1, x, fl, fr, f;
+            int iter = 0;
+            cons.Text += "x0= " + x0 + " x1= " + x1 + Environment.NewLine;
+
+            do
             {
-                if (f(x) > 0) b = x;
-                else a = x;
-                x = (a + b) / 2;
-
-                k++;
-                
-               // chart1.Series[0].Points.Add(f(x));
-                
-                
-
+                x = (left + right) / 2;
+                f = func(x);
+                if (f > 0) right = x;
+                else left = x;
+                iter++;
+            } while (Math.Abs(f) > eps && iter < 10000);
+            for (int i = -10; i < 30;)
+            {
+                chart1.Series[0].Points.Add(func(i));
+                chart1.Series[1].Points.AddXY(i, func(x));
+                i ++;
+                cons.Text += i + Environment.NewLine;
             }
 
+            
+            cons.Text += iter + " iterations " + func(x);
+            
 
 
-            chart1.Series[1].Points.Add(f(x));
+            return func(x);
 
-            return x;
+
+            //const double sigma = 0.001;
+            //double x;
+            //x = (a + b) / 2;
+            //while (Math.Abs(f(x)) > sigma)
+            //{
+            //    if (f(x) > 0) b = x;
+            //    else a = x;
+            //    x = (a + b) / 2;
+
+            //   // chart1.Series[0].Points.Add(f(x));
+            //}
+            //chart1.Series[1].Points.Add(f(x));
+
+            //return x;
         }
         private void button1_Click(object sender, EventArgs e)
         {
             chart1.Series[0].Points.Clear();
-            textBox1.Text = FindKoren(0, 3).ToString();
-            
+            textBox1.Text += FindKoren(0.0f, 6.0f, 0.001).ToString();
+            textBox1.Text += Environment.NewLine;
 
             chart1.ChartAreas[0].AxisX.ScaleView.Zoom(-20, 20);
             chart1.ChartAreas[0].CursorX.IsUserEnabled = true;
@@ -68,10 +90,10 @@ namespace Practice
             chart1.ChartAreas[0].AxisY.ScaleView.Zoomable = true;
             chart1.ChartAreas[0].AxisY.ScrollBar.IsPositionedInside = true;
 
-            for (int i = -10; i < 10; i++)
-            {
-                chart1.Series[0].Points.Add(f(i));
-            }
+            //for (int i = -10; i < 30; i++)
+            //{
+            //    chart1.Series[0].Points.Add(func(i));
+            //}
         }
 
         private void button2_Click(object sender, EventArgs e)
