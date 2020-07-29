@@ -2,9 +2,9 @@ C:\Users\andkv\source\repos\Practice\Practice\bin\Debug\Practice.exe.config
 C:\Users\andkv\source\repos\Practice\Practice\bin\Debug\Practice.exe
 C:\Users\andkv\source\repos\Practice\Practice\bin\Debug\Practice.pdb
 C:\Users\andkv\source\repos\Practice\Practice\obj\Debug\Practice.csprojAssemblyReference.cache
-C:\Users\andkv\source\repos\Practice\Practice\obj\Debug\Practice.Form1.resources
 C:\Users\andkv\source\repos\Practice\Practice\obj\Debug\Practice.Properties.Resources.resources
 C:\Users\andkv\source\repos\Practice\Practice\obj\Debug\Practice.csproj.GenerateResource.cache
 C:\Users\andkv\source\repos\Practice\Practice\obj\Debug\Practice.csproj.CoreCompileInputs.cache
 C:\Users\andkv\source\repos\Practice\Practice\obj\Debug\Practice.exe
 C:\Users\andkv\source\repos\Practice\Practice\obj\Debug\Practice.pdb
+C:\Users\andkv\source\repos\Practice\Practice\obj\Debug\Practice.App.resources
