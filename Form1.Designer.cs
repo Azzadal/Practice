@@ -90,7 +90,7 @@
             this.createChartButton.TabIndex = 1;
             this.createChartButton.Text = "Создать график";
             this.createChartButton.UseVisualStyleBackColor = true;
-            this.createChartButton.Click += new System.EventHandler(this.createChartButton_Click);
+            this.createChartButton.Click += new System.EventHandler(this.CreateChartButton_Click);
             // 
             // clear
             // 
@@ -100,7 +100,7 @@
             this.clear.TabIndex = 4;
             this.clear.Text = "Очистить";
             this.clear.UseVisualStyleBackColor = true;
-            this.clear.Click += new System.EventHandler(this.clear_Click);
+            this.clear.Click += new System.EventHandler(this.Clear_Click);
             // 
             // functionValue
             // 
