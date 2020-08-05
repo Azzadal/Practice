@@ -10,7 +10,7 @@ namespace Practice
             InitializeComponent();
         }
         //математическая функция
-        public static float F(float x)
+        public float F(float x)
         {
             return (float)Math.Pow(x, 3);
         }
