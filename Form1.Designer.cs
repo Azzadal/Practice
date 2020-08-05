@@ -38,6 +38,7 @@
             this.clear = new System.Windows.Forms.Button();
             this.functionValue = new System.Windows.Forms.TextBox();
             this.cons = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.chart)).BeginInit();
             this.SuspendLayout();
             // 
@@ -114,6 +115,7 @@
             // cons
             // 
             this.cons.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.cons.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.cons.Location = new System.Drawing.Point(636, 591);
             this.cons.Multiline = true;
             this.cons.Name = "cons";
@@ -121,12 +123,23 @@
             this.cons.Size = new System.Drawing.Size(421, 125);
             this.cons.TabIndex = 12;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label1.Location = new System.Drawing.Point(560, 594);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(56, 15);
+            this.label1.TabIndex = 13;
+            this.label1.Text = "консоль";
+            // 
             // App
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLight;
             this.ClientSize = new System.Drawing.Size(1131, 728);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.cons);
             this.Controls.Add(this.functionValue);
             this.Controls.Add(this.clear);
@@ -149,6 +162,7 @@
         private System.Windows.Forms.Button clear;
         private System.Windows.Forms.TextBox functionValue;
         private System.Windows.Forms.TextBox cons;
+        private System.Windows.Forms.Label label1;
     }
 }
 

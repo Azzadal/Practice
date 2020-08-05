@@ -9,17 +9,20 @@ namespace Practice
         {
             InitializeComponent();
         }
-
-        public float F(float x)
+        //математическая функция
+        public static float F(float x)
         {
             return (float)Math.Pow(x, 3);
         }
+
         Function function = new Function();
 
+        //построение графика
         private void CreateChartButton_Click(object sender, EventArgs e)
         {
+            functionValue.Text = string.Empty;
             chart.Series[0].Points.Clear();
-            functionValue.Text += function.ExtremumSearch(0.45f, 0.95f, 0.001, chart, cons).ToString();
+            functionValue.Text += function.ExtremumSearch(0.45f, 0.95f, 0.001, chart, cons, F).ToString();
             functionValue.Text += Environment.NewLine;
 
             chart.ChartAreas[0].AxisX.ScaleView.Zoom(-20, 20);
@@ -35,6 +38,7 @@ namespace Practice
             chart.ChartAreas[0].AxisY.ScrollBar.IsPositionedInside = true;
         }
 
+        //очистка поля
         private void Clear_Click(object sender, EventArgs e)
         {
             chart.Series[0].Points.Clear();
