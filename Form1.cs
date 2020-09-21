@@ -5,13 +5,20 @@ namespace Practice
 {
     public partial class App : Form
     {
+        float startInterval;
+        float endInterval;
         public App()
         {
             InitializeComponent();
+            comboBox1.SelectedIndex = 0;
+            comboBox1.DropDownStyle = ComboBoxStyle.DropDownList;
         }
         //математическая функция
         public float F(float x)
         {
+            int index = comboBox1.SelectedIndex;
+            if (index == 1) return (float)Math.Sin(2 * x);
+            if (index == 2) return (float)(4 * Math.Pow(x, 2) - 8 * x + 3);
             return (float)Math.Pow(x, 3);
         }
 
@@ -20,10 +27,20 @@ namespace Practice
         //построение графика
         private void CreateChartButton_Click(object sender, EventArgs e)
         {
-            functionValue.Text = string.Empty;
-            chart.Series[0].Points.Clear();
-            functionValue.Text += function.ExtremumSearch(0.45f, 0.95f, 0.001, chart, cons, F).ToString();
-            functionValue.Text += Environment.NewLine;
+            try
+            {
+                startInterval = float.Parse(textBox1.Text);
+                endInterval = float.Parse(textBox2.Text);
+                functionValue.Text = string.Empty;
+                chart.Series[0].Points.Clear();
+                chart.Series[1].Points.Clear();
+                functionValue.Text += function.ExtremumSearch(startInterval, endInterval, 0.001, chart, cons, F).ToString();
+                functionValue.Text += Environment.NewLine;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
 
             chart.ChartAreas[0].AxisX.ScaleView.Zoom(-20, 20);
             chart.ChartAreas[0].CursorX.IsUserEnabled = true;
@@ -42,6 +59,7 @@ namespace Practice
         private void Clear_Click(object sender, EventArgs e)
         {
             chart.Series[0].Points.Clear();
+            chart.Series[1].Points.Clear();
         }
     }
 }
